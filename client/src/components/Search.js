@@ -1,11 +1,13 @@
 import React from "react";
 
-function Search() {
+function Search(props) {
   return (
-    <form>
-      <input type="text"></input>
-      <button type="submit">Search</button>
-    </form>
+    <div className="searchArea">
+      <form onSubmit={props.requestBooks} action="">
+        <input onChange={props.searchClick} type="text"></input>
+        <button type="submit">Search</button>
+      </form>
+    </div>
   );
 }
 

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import request from "superagent";
+import BookRes from "./BookRes";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       books: [],
-      searchField: "",
+      searchText: "",
     };
   }
 
@@ -15,14 +16,14 @@ class Main extends Component {
     event.preventDefault();
     request
       .get("https://www.googleapis.com/books/v1/volumes")
-      .query({ q: this.state.searchField })
+      .query({ q: this.state.searchText })
       .then((data) => {
-        console.log(data);
+        this.setState({ books: [...data.body.items] });
       });
   };
 
   searchClick = (event) => {
-    this.setState({ searchField: event.target.value });
+    this.setState({ searchText: event.target.value });
   };
 
   render() {
@@ -32,6 +33,7 @@ class Main extends Component {
           requestBooks={this.requestBooks}
           searchClick={this.searchClick}
         />
+        <BookRes books={this.state.books} />
       </div>
     );
   }

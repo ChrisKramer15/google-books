@@ -1,13 +1,22 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Saved from "./pages/Saved";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <Router>
+        <Switch>
+          <Route exact path={"/"}>
+            <Home />
+          </Route>
+          <Route exact path={"/saved"}>
+            <Saved />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

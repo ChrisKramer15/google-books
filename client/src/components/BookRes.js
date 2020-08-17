@@ -10,6 +10,9 @@ const BookRes = (props) => {
             key={i}
             image={book.volumeInfo.imageLinks.thumbnail}
             title={book.volumeInfo.title}
+            author={book.volumeInfo.authors}
+            desc={book.volumeInfo.description}
+            link={book.volumeInfo.infoLink}
           />
         );
       })}

@@ -6,14 +6,16 @@ const BookRes = (props) => {
     <div className="List">
       {props.books.map((book, i) => {
         return (
-          <BookItem
-            key={i}
-            image={book.volumeInfo.imageLinks.thumbnail}
-            title={book.volumeInfo.title}
-            author={book.volumeInfo.authors}
-            desc={book.volumeInfo.description}
-            link={book.volumeInfo.infoLink}
-          />
+          <div className="container">
+            <BookItem
+              key={i}
+              image={book.volumeInfo.imageLinks.thumbnail}
+              title={book.volumeInfo.title}
+              author={book.volumeInfo.authors}
+              desc={book.volumeInfo.description}
+              link={book.volumeInfo.infoLink}
+            />
+          </div>
         );
       })}
     </div>

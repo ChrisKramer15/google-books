@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import Search from "./Search";
 import request from "superagent";
 import BookRes from "./BookRes";
+// import API from "../utils/API";
 
 class Main extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       books: [],
       searchText: "",
@@ -31,6 +33,14 @@ class Main extends Component {
     this.setState({ searchText: event.target.value });
   };
 
+  handleSaveClick = (e) => {
+    e.preventDefault();
+    const book = {
+      title: this.state.title,
+    };
+    console.log("Successfully added to book list!");
+    console.log(book);
+  };
   render() {
     return (
       <div>

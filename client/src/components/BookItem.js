@@ -9,9 +9,6 @@ function BookItem(props, { handleSaveClick }) {
         <h3>{props.author}</h3>
         <p>{props.desc}</p>
         <a href={props.link}>View</a>
-        <button type="button" rowKey="id" onClick={handleSaveClick}>
-          Save
-        </button>
       </div>
     </div>
   );

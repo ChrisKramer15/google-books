@@ -33,14 +33,6 @@ class Main extends Component {
     this.setState({ searchText: event.target.value });
   };
 
-  handleSaveClick = (e) => {
-    e.preventDefault();
-    const book = {
-      title: this.state.title,
-    };
-    console.log("Successfully added to book list!");
-    console.log(book);
-  };
   render() {
     return (
       <div>
